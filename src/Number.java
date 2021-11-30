@@ -34,6 +34,16 @@ public class Number {
             case "sixteen": number = "16";
             case "seventeen": number = "17";
             case "eighteen": number = "18";
+            case "nineteen": number = "19";
+            case "twenty": number = "20";
+            case "thirty": number = "30";
+            case "forty": number = "40";
+            case "fifty": number = "50";
+            case "sixty": number = "60";
+            case "seventy": number = "70";
+            case "eighty": number = "80";
+            case "ninety": number = "90";
+            case "hundred": number = "00";
         }
 
     }
