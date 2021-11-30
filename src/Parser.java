@@ -13,7 +13,7 @@ public class Parser {
 
             switch (sequenceOfWordNumbers[i]) {
                 case "million": number.setNumber(numStr, sequenceOfWordNumbers[i -1]);
-                arr.add(number.getNumber(numStr, sequenceOfWordNumbers[i -1]));
+                arr.add(number.getNumber(sequenceOfWordNumbers[i -1]));
                 case "thousand":
 
             }
