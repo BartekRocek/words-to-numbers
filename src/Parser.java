@@ -14,7 +14,6 @@ public class Parser {
 
             switch (sequenceOfWordNumbers[i]) {
                 case "one":
-                    changeWordToDigit(numStr, arr, number, sequenceOfWordNumbers[i]);
                 case "two":
                 case "three":
                 case "four":
