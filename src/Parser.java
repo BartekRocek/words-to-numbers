@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Parser {
@@ -9,26 +10,58 @@ public class Parser {
         ArrayList<String> arr = new ArrayList<>();
         Number number = new Number(numStr, sequenceOfWordNumbers[0]);
 
-        for (int i = 0; i < sequenceOfWordNumbers.length; i++) {
+        for (int i = sequenceOfWordNumbers.length - 1; i >= 0; i--) {
 
             switch (sequenceOfWordNumbers[i]) {
-                case "million": number.setNumber(numStr, sequenceOfWordNumbers[i - 1]);
-                arr.add(number.getNumber(sequenceOfWordNumbers[i - 1]));
-                case "thousand":
-
+                case "one":
+                    changeWordToDigit(numStr, arr, number, sequenceOfWordNumbers[i]);
+                case "two":
+                case "three":
+                case "four":
+                case "five":
+                case "six":
+                case "seven":
+                case "eight":
+                case "nine":
+                case "ten":
+                case "eleven":
+                case "twelve":
+                case "thirteen":
+                case "fourteen":
+                case "fifteen":
+                case "sixteen":
+                case "seventeen":
+                case "eighteen":
+                case "nineteen":
+                case "thirty":
+                case "forty":
+                    changeWordToDigit(numStr, arr, number, sequenceOfWordNumbers[i]);
+//                    default: return -1;
             }
-
-
         }
 
+        int sum = 0;
 
+        for (int i = 0; i < arr.size(); i++) {
+            sum += Integer.parseInt(arr.get(i));
+        }
 
-        return -1;
+        return sum;
+    }
+
+    private static void changeWordToDigit(String numStr, ArrayList<String> arr, Number number,
+                                          String sequenceOfWordNumber) {
+        number.setNumber(sequenceOfWordNumber);
+        arr.add(number.getNumber());
     }
 
     public static void main(String[] args) {
 
-        System.out.println(parseInt(new java.util.Scanner(System.in).nextLine()));
+        Scanner scanner = new Scanner(System.in);
+
+        String numberInWords = scanner.nextLine();
+
+        System.out.println(parseInt(numberInWords));
 
     }
 
