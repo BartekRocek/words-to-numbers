@@ -13,28 +13,10 @@ public class Parser {
         for (int i = sequenceOfWordNumbers.length - 1; i >= 0; i--) {
 
             switch (sequenceOfWordNumbers[i]) {
-                case "one":
-                case "two":
-                case "three":
-                case "four":
-                case "five":
-                case "six":
-                case "seven":
-                case "eight":
-                case "nine":
-                case "ten":
-                case "eleven":
-                case "twelve":
-                case "thirteen":
-                case "fourteen":
-                case "fifteen":
-                case "sixteen":
-                case "seventeen":
-                case "eighteen":
-                case "nineteen":
-                case "thirty":
-                case "forty":
-                    changeWordToDigit(numStr, arr, number, sequenceOfWordNumbers[i]);
+                case "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"
+                        , "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "thirty"
+                        , "forty" -> changeWordToDigit(numStr, arr, number, sequenceOfWordNumbers[i]);
+
 //                    default: return -1;
             }
         }
