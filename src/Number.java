@@ -48,7 +48,5 @@ public class Number {
             case "thousand" -> this.number = "1000";
             case "million" -> this.number = "1000000";
         }
-
     }
-
 }

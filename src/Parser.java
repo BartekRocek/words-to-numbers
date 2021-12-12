@@ -47,6 +47,21 @@ public class Parser {
         arr.add(number.getNumber());
     }
 
+    private static boolean isHundredPriorToThousand(String s, String[] individualWordNumbers) {
+        int indexOfHundred = 1000;
+        for (int i = 0; i < individualWordNumbers.length; i++) {
+            if (individualWordNumbers[i].equals("100")) {
+               indexOfHundred = i;
+               break;
+            }
+        }
+        for (int i = 0; i < individualWordNumbers.length; i++) {
+            if (individualWordNumbers[i].equals("1000") && i > indexOfHundred)
+                return true;
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
 
         System.out.println(parseInt(new java.util.Scanner(System.in).nextLine().toLowerCase()));
