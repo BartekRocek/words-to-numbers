@@ -23,7 +23,16 @@ public class Parser {
                         individualWordNumber);
             }
         }
-        for (String s : arr) {
+        for (int i = 0; i < arr.size(); i++) {
+            String s = arr.get(i);
+
+            if (s.equals("100") && isHundredPriorToThousand(arr, i)) {
+                sum *= Integer.parseInt(s) * 1000;
+                componentsToSumUp.add(counter, sum);
+                counter++;
+                sum = 0;
+                continue;
+            }
 
             if (s.equals("1000000") || s.equals("1000") || s.equals("100")) {
                 sum *= Integer.parseInt(s);
@@ -38,7 +47,6 @@ public class Parser {
         for (Integer integer : componentsToSumUp) {
             sum += integer;
         }
-
         return sum;
     }
 
@@ -47,24 +55,28 @@ public class Parser {
         arr.add(number.getNumber());
     }
 
-    private static boolean isHundredPriorToThousand(String s, String[] individualWordNumbers) {
-        int indexOfHundred = 1000;
-        for (int i = 0; i < individualWordNumbers.length; i++) {
-            if (individualWordNumbers[i].equals("100")) {
+    public static boolean isHundredPriorToThousand(ArrayList<String> arr, int i) {
+
+        int indexOfHundred = 0;
+        boolean isHundredPresent = false;
+
+        for (; i < arr.size(); i++) {
+            if (Integer.parseInt(arr.get(i)) == 100) {
+
+               isHundredPresent = true;
                indexOfHundred = i;
                break;
             }
         }
-        for (int i = 0; i < individualWordNumbers.length; i++) {
-            if (individualWordNumbers[i].equals("1000") && i > indexOfHundred)
+        for (int k = indexOfHundred; k < arr.size(); k++) {
+            if (isHundredPresent && Integer.parseInt(arr.get(k)) == 1000) {
                 return true;
+            }
         }
         return false;
     }
 
     public static void main(String[] args) {
-
         System.out.println(parseInt(new java.util.Scanner(System.in).nextLine().toLowerCase()));
-
     }
 }
