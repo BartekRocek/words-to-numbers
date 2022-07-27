@@ -1,7 +1,7 @@
 public class Number {
 
-    String wordNumber;
-    String number;
+    private String wordNumber;
+    private String number;
 
 
     public Number(String wordNumber, String number) {
