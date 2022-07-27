@@ -1,4 +1,4 @@
-# WordsToNumbers
+# words-to-numbers
 
 In this kata we want to convert a string into an integer. The strings simply represent the numbers in words.
 
